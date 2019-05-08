@@ -1,0 +1,114 @@
+---
+title: "Module 1 - Measuring reefs"
+author: "Elizabeth Madin"
+date: "`r format(Sys.Date())`"
+output: 
+  github_document
+  #word_document
+
+---
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(sciplot)
+library(vegan)
+library(plotrix)
+library(plyr)
+```
+
+## Summary
+
+This module focuses on measuring and comparing coral patch reefs in the field and with satellite imagery of various spatial resolutions. 
+
+## Goals
+
+* Make connection between use of field data and remote (e.g., satellite; aerial) imagery to measure biological/habitat variables
+* Highlight strengths and limitations of each approach
+* Start thinking about ?s to ask/answer in a) course project and b) own research
+* Provide coral reef field experience
+* Generate dataset for potentially publishable study (?)
+
+## Components
+
+* Devise/practice field measurement protocol
+* Measure reefs in-situ
+* Measure reefs w/satellite imagery of various spatial resolutions via:
+  + Google Earth
+  + Planet Explorer
+* Compare measurement variability based on method, imagery spatial resolution, etc.
+
+
+```{r data import, echo=FALSE, results='hide', include=FALSE}
+################################################
+# import data, observe structure
+################################################
+
+data<-read.csv("Module1_MeasuringReefs.csv", header = TRUE)
+
+names(data)
+head(data)
+data$year<-substr(data$date,0,4) # add a column for year only
+```
+
+## Results
+
+Let's do some basic plots:
+
+```{r data explore-1, echo=FALSE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+################################################
+# explore patterns
+################################################
+
+# Effect of method
+plot(area_m2~method, data=data, na.ignore=TRUE, col="lightgrey",
+     ylab="Patch reef area (m^2)", 
+     xlab="Method", 
+     main="Area versus method")
+
+# Effect of imagery resolution
+plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
+     xlim=c(0,10),
+     xlab="Imagery spatial resolution (m)", 
+     ylab="Patch reef area (m^2)", 
+     main="Area versus imagery resolution")
+res.area.lm=lm(area_m2 ~ imagery_resolution_m, data=data)
+abline(res.area.lm, col = "black")
+summary(res.area.lm)
+
+plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
+     xlim=c(0,10),
+     xlab="Imagery spatial resolution (m)", 
+     ylab="Patch reef perimeter (m)", 
+     main="Perimeter versus imagery resolution")
+res.perim.lm=lm(perimeter_m ~ imagery_resolution_m, data=data)
+abline(res.perim.lm, col = "black")
+summary(res.perim.lm)
+
+# Effect of date (i.e., do patch reefs measureably grow or shrink over time?)
+plot(area_m2~as.numeric(year), data=data, col="slategrey",
+     xlab="Year", 
+     ylab="Patch reef area (m^2)", 
+     main="Area versus year")
+date.area.lm=lm(area_m2 ~ as.numeric(year), data=data)
+abline(date.area.lm, col = "black")
+summary(date.area.lm)
+```
+
+Now, let's see if there's anything going on with time when imagery resolution is considered:
+
+```{r data analysis-1, echo=TRUE, results='show', fig.height=5, fig.width=5, fig.align='center'}
+################################################
+# analyze data
+################################################
+
+# Effects of imagery resolution + year
+res.year.lm=lm(area_m2 ~ imagery_resolution_m * as.numeric(year), data=data)
+summary(res.year.lm)
+
+## START HERE: why only one predictor variable showing up in output??
+
+```
+
+
+
