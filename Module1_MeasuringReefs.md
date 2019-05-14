@@ -1,7 +1,7 @@
 Module 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-08
+2019-05-13
 
 Summary
 -------
@@ -45,7 +45,7 @@ Preparation:
     -   Area
     -   Perimeter
 -   Revise plan and write protocol for field measurements
--   Download .csv datasheet template ("Module1\_MeasuringReefs\_template.csv") from <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->
+-   Clone repository <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->, which will allow you to open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
     -   Do not add/delete columns since we will combine datasets later
     -   Column headings in red are those you’ll be filling in
 -   Print datasheets (relevant columns) on waterproof paper
@@ -66,8 +66,8 @@ Data entry:
 
 Getting started:
 
--   Download .kmz/.kml patch reef placemark file (Sites.kmz) from <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->
--   Open saved .csv datasheet template
+-   Download .kmz/.kml patch reef placemark file ("Sites.kmz"") from <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->
+-   Open saved .csv datasheet template adn re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
     -   Column headings in red are those you’ll be filling in
 
 Measuring reefs:
@@ -135,7 +135,7 @@ Once all data is collected:
 
 Once everyone’s data is merged:
 
--   Create a new R Markdown file
+-   Create a new R Markdown (.Rmd) file
 -   Make some basic plots to help you explore any patterns in the data
 -   Run some statistical analyses to determine sources of variance, any significant trends, etc.
 -   When you’re finished, go back and give each figure a short caption
@@ -146,7 +146,7 @@ Once everyone’s data is merged:
     -   Discussion (mention any interesting findings and, if you have time, relate this to any previous literature using a similar approach/asking similar questions)
 -   This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
 
-Let's do some basic plots to get you started:
+Now, let's do some basic plots to get you started:
 
 <img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-1.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-2.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-3.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-4.png" style="display: block; margin: auto;" />
 
@@ -188,17 +188,71 @@ summary(res.year.lm)
     ## Multiple R-squared:  0.8005, Adjusted R-squared:  0.7755 
     ## F-statistic:  32.1 on 3 and 24 DF,  p-value: 1.449e-08
 
-``` r
-## START HERE: why only one predictor variable showing up in output??
-```
-
 Useful information
 ------------------
 
 #### Determining resolution of Google Earth imagery
 
-There is no tool that will tell you the resolution of Google Earth's imagery in any specific location...but, you can: \* look at the copyright info to get an idea (e.g., it's from DigitalGlobe, then it's most often 0.5m) \* use rules of thumb (below) about what size of objects you can see clearly
+There is no tool that will tell you the resolution of Google Earth's imagery in any specific location...but, you can:
+
+-   look at the copyright info to get an idea (e.g., it's from DigitalGlobe, then it's most often 0.5m)
+-   use rules of thumb (below) about what size of objects you can see clearly
 
 #### Summary of providers, satellites & resolutions in Google Earth
 
 These are at least the main types found in Google Earth, though this list is not necessarily exhaustive:
+
+        Provider          | Instrument      | Spatial resolution (m) | Operational   
+        ----------------- | --------------- | ---------------------- | ------------  
+        US Geolog. Survey | Landsat         | 30 (15 pan-sharpened)  | LS1 from 1972; LS8 from Feb 2013 
+        SpotImage         | SPOT 1-7        | 10 - 2.5               | Mar 1998 – present 
+        Digital Globe     | EarlyBird-1     | 3                      | DigitalGlobe 
+        Digital Globe     | Ikonos          | ~1                     | DigitalGlobe  
+        Digital Globe     | WorldView-1/2   | ~0.5                   | Unknown       
+        Digital Globe     | GeoEye-1        | ~0.5                   | DigitalGlobe  
+        Digital Globe     | Quickbird       | ~0.5                   | DigitalGlobe  
+        Airbus            | Pleiades        | ~0.5                   | DigitalGlobe  
+        Digital Globe     | WorldView-3     | ~0.3                   | Unknown       
+        Various           | Aerial systems  | ~0.15                  | DigitalGlobe  
+        Various           | Cameras on kites| A few cm               | Varies 
+
+#### Summary of providers, satellites & resolutions in Planet Explorer
+
+These are the only types currently found in Planet Explorer:
+
+        Provider          | Instrument      | Spatial resolution (m) | Operational   
+        ----------------- | --------------- | ---------------------- | ------------  
+        US Geolog. Survey | Landsat-8       | 30 (15 pan-sharpened)  | Feb 2013-present
+        ESA (Eur Space Agency)| Sentinel-2  | 10                     |  
+        Planet            | EarlyBird-1     | 5                      |  
+        Planet            | Ikonos          | ~3                     |   
+        Planet            | WorldView-1/2   | 0.72                   |        
+
+#### Rules of thumb for determining spatial resolution of satellite imagery
+
+from GIS Stack Exchange, answered by Christiaan Adams of Google Earth Outreach; <https://gis.stackexchange.com/questions/11395/spatial-resolution-of-google-earth-imagery/256850>)
+
+The resolution of imagery in Google Earth varies depending on the source of the data. When you zoom out, you will see the nice, pretty global coverage produced from a mosaic of many Landsat scenes, which have a native resolution of ~30m (~15m pan-sharpened).
+
+Zooming in, you'll start to get high-resolution in most places. There are many rural areas, especially in Africa, where broad coverage is provided by the SPOT satellites, which produce anywhere from 10m to 1.5m resolution. Next you can still find some Ikonos data in a few places, at about 1m resolution. Then you get down to the really high-resolution satellites, including Digital Globe's WorldView-1/2/3 series, GeoEye-1, and Airbus' Pleiades, all of which provide data at around 0.5m resolution. That's about the limit for satellite data, though a few places are staring to get data from newer satellites (including WorldView-3) at around 0.3m.
+
+In much of North America, Europe, Japan and some other places, you'll find even higher resolution images which generally come from aerial systems (cameras on airplanes), and a lot of that data in Google Earth is at about 0.15m resolution. Finally, there are just a few tiny spots around the world where Google Earth shows data collected by citizen scientists (through the Public Lab), using cameras on kites and balloons, which can get down into the few centimeters per pixel range.
+
+There is no tool that will tell you the resolution of Google Earth's imagery in any specific location.
+
+Here are some fun rules of thumb I use to quickly estimate the resolution of what I'm looking at, by zooming in on cars. If roads and house roofs look like they are 2-5 pixels wide, then you are probably seeing SPOT's 5m or 2.5m products. If you can clearly make out the shapes of cars, but their windshields are poorly defined, then it might be 1m from Ikonos. If the windshield is pretty clear, but you can only barely (or not quite) make out the frame pillars along the sides of the windshield, then you're probably looking at 0.5m satellite imagery. If you can clearly make out the pillars, and start to see the side-view mirrors on the car, then you're most likely looking at aerial data in the 0.15m range. More generally, find an object that you know the approximate size of, and see about how many pixels it's covered by, and do the math.
+
+There is a good suggestion in previous answers, that you zoom way in and look at the copyright strings, as that will often tell you at least what company the data came from (as well as the acquisition date listed in the status bar)... though for the aerial data that may not help as a copyright is often not listed. If it's from DigitalGlobe, then it's most often 0.5m. If you really want to dig in, you can go to the company's online imagery catalog, look in your desired location, search for images around the date provided, and try to find an image that looks the same (similar colors, cloud patterns, etc.). If you can find the corresponding image in the catalog, then you can see all the metadata, including which satellite and what resolution.
+
+#### Problems I've encountered in Google Earth
+
+-   Date mismatches between TimeSlider and "Imagery date" (info at bottom right of image): e.g., 12/30/2008 on time slider says 12/31/2007 on bottom
+
+-   Same images given for multiple dates (e.g., 7/30/2006 on time slider is same image as 12/30/2008 on time slider) - this one also has mismatched "Imagery date"
+
+-   Different dates coming up on Time Slider for same image during different Google Earth sessions (i.e., image of PR 21 and area has come up on Time Slider for both 8/10/2014 and 4/30/2015, yet neither date appears as an option on Time Slider when the other date is given for the image) – see screenshots below. Note that both images have date 8/10/2014 in “Imagery Date” field at bottom of image. Note (tiny) Time Slider dates at top left of each image:
+
+<center>
+<img src="info/DateMismatch_1.png" alt="Note Time Slider date at top" style="width:90.0%" /> <img src="info/DateMismatch_2.png" alt="Note Time Slider date at top" style="width:90.0%" />
+
+</center>
