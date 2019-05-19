@@ -1,3 +1,1 @@
-# HIMB-Summer Course 2019: Remote Sensing Imagery, Module 1: Measuring Reefs
-
-## Module 1 instructions and example data analyses.
+This contains the instructions and example data analyses of the Day 1 (afternoon) & Day 2 of the Remote Sensing Imagery Module 1: Measuring Reefs of the HIMB Summer Course 2019.
