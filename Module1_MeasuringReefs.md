@@ -1,7 +1,11 @@
 Module 1 - Measuring reefs
 ================
 Elizabeth Madin
+<<<<<<< HEAD
 2019-05-19
+=======
+2019-05-09
+>>>>>>> c0c8165cf207df66b5a29e9a0908befbda45a50c
 
 Summary
 -------
