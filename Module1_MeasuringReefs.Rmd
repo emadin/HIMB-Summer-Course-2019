@@ -21,6 +21,8 @@ library(plyr)
 
 This module focuses on measuring and comparing coral patch reefs in the field and with satellite and aerial imagery of various spatial resolutions. 
 
+We're using this exercize as a means to understand the general implications of satellite imagery spatial resolution on measuring features of interest. However, it has real-world applications in terms of coral reef area measurement (e.g., Madin and Madin (2015) _Conservation Biology_ and https://allencoralatlas.org)). 
+
 ## Goals
 
 * Make connection between use of field data and remote (e.g., satellite; aerial) imagery to measure biological/habitat variables
@@ -165,7 +167,7 @@ Now, let's do some basic plots to get you started:
 # import data, observe structure
 ################################################
 
-data<-read.csv("Module1_MeasuringReefs_EM.csv", header = TRUE)
+data<-read.csv("data/Module1_MeasuringReefs_EM.csv", header = TRUE)
 
 names(data)
 head(data)
@@ -183,6 +185,8 @@ plot(area_m2~method, data=data, na.ignore=TRUE, col="lightgrey",
      ylab="Patch reef area (m^2)", 
      xlab="Method", 
      main="Area versus method")
+dev.copy(pdf,"figs/method_area_effect.pdf")    # can change to .png, etc.; can change size to incr resolution
+dev.off()
 
 # Effect of imagery resolution
 plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
@@ -193,6 +197,8 @@ plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
 res.area.lm=lm(area_m2 ~ imagery_resolution_m, data=data)
 abline(res.area.lm, col = "black")
 summary(res.area.lm)
+dev.copy(pdf,"figs/resolution_area_effect.pdf")    
+dev.off()
 
 plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
      xlim=c(0,10),
@@ -202,6 +208,8 @@ plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
 res.perim.lm=lm(perimeter_m ~ imagery_resolution_m, data=data)
 abline(res.perim.lm, col = "black")
 summary(res.perim.lm)
+dev.copy(pdf,"figs/resolution_perimeter_effect.pdf")    
+dev.off()
 
 # Effect of date (i.e., do patch reefs measureably grow or shrink over time?)
 plot(area_m2~as.numeric(year), data=data, col="slategrey",
@@ -211,6 +219,8 @@ plot(area_m2~as.numeric(year), data=data, col="slategrey",
 date.area.lm=lm(area_m2 ~ as.numeric(year), data=data)
 abline(date.area.lm, col = "black")
 summary(date.area.lm)
+dev.copy(pdf,"figs/date_area_effect.pdf")    
+dev.off()
 ```
 
 Now, let's see if there's anything going on with time when imagery resolution is considered:

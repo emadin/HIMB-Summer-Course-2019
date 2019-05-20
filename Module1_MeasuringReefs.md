@@ -1,12 +1,14 @@
 Module 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-18
+2019-05-19
 
 Summary
 -------
 
 This module focuses on measuring and comparing coral patch reefs in the field and with satellite and aerial imagery of various spatial resolutions.
+
+We're using this exercize as a means to understand the general implications of satellite imagery spatial resolution on measuring features of interest. However, it has real-world applications in terms of coral reef area measurement (Madin and Madin (2015) *Conservation Biology* and <https://allencoralatlas.org>)).
 
 Goals
 -----
