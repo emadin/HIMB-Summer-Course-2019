@@ -236,7 +236,7 @@ summary(res.year.lm)
 ```
 
 
-## Useful information
+## Useful reference information
 
 #### Determining resolution of Google Earth imagery
 
