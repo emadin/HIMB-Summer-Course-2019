@@ -1,4 +1,4 @@
-Module 1 - Measuring reefs
+Project 1 - Measuring reefs
 ================
 Elizabeth Madin
 2019-05-21
@@ -58,17 +58,19 @@ Measuring reefs:
 
 Data entry:
 
--   Enter data into downloaded datasheet template
+-   Clone repository <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->, which will allow you to open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
+    -   Do not add/delete columns since we will combine datasets later
+    -   Column headings in red are those you’ll be filling in
+-   Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
+    -   Column headings in red are those you’ll be filling in
+-   Enter data into this datasheet
 
 #### Part 2: Imagery measurements
 
 Getting started:
 
--   Clone repository <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->, which will allow you to open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
-    -   Do not add/delete columns since we will combine datasets later
-    -   Column headings in red are those you’ll be filling in
--   Open .kmz/.kml patch reef placemark file ("Sites.kmz"") in Google Earth
--   Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
+-   Open .kmz/.kml patch reef placemark file ("Sites.kmz", from cloned repo) in Google Earth
+-   Open .csv datasheet you saved with your initials
     -   Column headings in red are those you’ll be filling in
 
 Measuring reefs:

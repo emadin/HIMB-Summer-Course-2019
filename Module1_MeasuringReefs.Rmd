@@ -1,5 +1,5 @@
 ---
-title: "Module 1 - Measuring reefs"
+title: "Project 1 - Measuring reefs"
 author: "Elizabeth Madin"
 date: "`r format(Sys.Date())`"
 output: 
@@ -68,17 +68,19 @@ Measuring reefs:
 
 Data entry:
 
-* Enter data into downloaded datasheet template
+* Clone repository https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs-, which will allow you to open the .csv datasheet template ("Module1_MeasuringReefs_template.csv") 
+    + Do not add/delete columns since we will combine datasets later
+    + Column headings in red are those you’ll be filling in
+* Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EM.csv")
+    + Column headings in red are those you’ll be filling in
+* Enter data into this datasheet
 
 #### Part 2: Imagery measurements
 
 Getting started:
 
-* Clone repository https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs-, which will allow you to open the .csv datasheet template ("Module1_MeasuringReefs_template.csv") 
-    + Do not add/delete columns since we will combine datasets later
-    + Column headings in red are those you’ll be filling in
-* Open .kmz/.kml patch reef placemark file ("Sites.kmz"") in Google Earth
-* Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EM.csv")
+* Open .kmz/.kml patch reef placemark file ("Sites.kmz", from cloned repo) in Google Earth
+* Open .csv datasheet you saved with your initials
     + Column headings in red are those you’ll be filling in
 
 Measuring reefs:
@@ -243,3 +245,5 @@ summary(res.year.lm)
     + Results (here’s where your figures and stats outputs will go)
     + Discussion (mention any interesting findings and, if you have time, briefly relate this to any previous literature using a similar approach/asking similar questions)	
 * This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
+
+
