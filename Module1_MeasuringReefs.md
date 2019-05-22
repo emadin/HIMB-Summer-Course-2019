@@ -241,26 +241,15 @@ summary(res.year.lm)
 
 Or reef identity (number):
 
-\`\`\`{r data analysis-1, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
-===================================================================================================
+``` r
+################################################
+# analyze data
+################################################
 
-################################################# 
-
-analyze data
-------------
-
-################################################# 
-
-Effects of imagery resolution + reef ID
-=======================================
-
-res.reefID.lm=lm(area\_m2 ~ imagery\_resolution\_m \* reef\_no, data=data)
-==========================================================================
-
+# Effects of imagery resolution + reef ID
+res.reefID.lm=lm(area_m2 ~ imagery_resolution_m * reef_no, data=data)
 summary(res.reefID.lm)
-======================
-
-\`\`\`
+```
 
 Part IV: Write-up
 -----------------
