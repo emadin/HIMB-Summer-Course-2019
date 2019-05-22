@@ -1,7 +1,7 @@
 Module 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-19
+2019-05-21
 
 Summary
 -------
@@ -47,17 +47,13 @@ Preparation:
     -   Area
     -   Perimeter
 -   Revise plan and write protocol for field measurements
--   Clone repository <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->, which will allow you to open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
-    -   Do not add/delete columns since we will combine datasets later
-    -   Column headings in red are those you’ll be filling in
--   Print datasheets (relevant columns) on waterproof paper
+-   Create datasheets on waterproof paper
 -   Gather remaining supplies for morning field trip
 
 Measuring reefs:
 
 -   Measure each study reef based on methods in protocol
--   Do three replicate measurements per reef
--   Record data on datasheet(s)
+-   Record data (including metadata - e.g., date/time, depth, etc.) on datasheet(s)
 -   Make sure not to leave any gear in the water!
 
 Data entry:
@@ -68,8 +64,11 @@ Data entry:
 
 Getting started:
 
--   Download .kmz/.kml patch reef placemark file ("Sites.kmz"") from <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->
--   Open saved .csv datasheet template adn re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
+-   Clone repository <https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs->, which will allow you to open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
+    -   Do not add/delete columns since we will combine datasets later
+    -   Column headings in red are those you’ll be filling in
+-   Open .kmz/.kml patch reef placemark file ("Sites.kmz"") in Google Earth
+-   Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
     -   Column headings in red are those you’ll be filling in
 
 Measuring reefs:
@@ -77,7 +76,8 @@ Measuring reefs:
 -   You will measure three of the patch reefs in Kane’ohe Bay for:
     -   Area
     -   Perimeter
--   Do three replicate measurements per reef
+-   Do one replicate of each reef
+-   If time permits, do the two additional replicate measurements per reef listed in datasheet
 -   You will use both Google Earth and Planet Explorer to measure reefs using imagery spanning a range of spatial resolutions
 
 1.  **Google Earth**
@@ -130,27 +130,92 @@ Part 3: Data analysis
 Once all data is collected:
 
 -   Check your dataset for any typos, missing values, etc.
--   Commit/push to Github
+-   Create a new RStudio proejct (.Rpoj) in the same folder as your .csv
+-   Creat a new project-specific repository in Github
+-   Link your Github repo with your project directory (folder)
+-   Commit/push to a new project-specific repository you create in Github
+-   Send your repo's link to the rest of the group via our Slack rotation group channel
 -   Pull (download) everyone else’s datasets
 -   Merge others’ datasets with your dataset
--   Commit/push revised (merged) dataset to Github
+-   Commit/push revised (merged) dataset to your Github repo
 
 Once everyone’s data is merged:
 
--   Create a new R Markdown (.Rmd) file
+-   Create a new R Markdown (.Rmd) file in R Studio
 -   Make some basic plots to help you explore any patterns in the data
 -   Run some statistical analyses to determine sources of variance, any significant trends, etc.
--   When you’re finished, go back and give each figure a short caption
--   Structure your .Rmd file as a ‘mini-paper’ with a bit of very brief text (~2-5 sentences) for each of the usual paper sections:
-    -   Introduction (summarize what you’re doing with this mini-project)
-    -   Methods (what you did, both in the field and the lab)
-    -   Results (here’s where your figures and stats outputs will go)
-    -   Discussion (mention any interesting findings and, if you have time, relate this to any previous literature using a similar approach/asking similar questions)
--   This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
 
 Now, let's do some basic plots to get you started:
 
-<img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-1.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-2.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-3.png" style="display: block; margin: auto;" /><img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-4.png" style="display: block; margin: auto;" />
+*Note: you'll need to change the data source file path & file name to match your own.*
+
+``` r
+################################################
+# explore patterns
+################################################
+
+# Effect of method
+plot(area_m2~method, data=data, na.ignore=TRUE, col="lightgrey",
+     ylab="Patch reef area (m^2)", 
+     xlab="Method", 
+     main="Area versus method")
+```
+
+<img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-1.png" style="display: block; margin: auto;" />
+
+``` r
+dev.copy(pdf,"figs/method_area_effect.pdf")    # can change to .png, etc.; can change size to incr resolution
+dev.off()
+
+# Effect of imagery resolution
+plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
+     xlim=c(0,10),
+     xlab="Imagery spatial resolution (m)", 
+     ylab="Patch reef area (m^2)", 
+     main="Area versus imagery resolution")
+res.area.lm=lm(area_m2 ~ imagery_resolution_m, data=data)
+abline(res.area.lm, col = "black")
+```
+
+<img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-2.png" style="display: block; margin: auto;" />
+
+``` r
+summary(res.area.lm)
+dev.copy(pdf,"figs/resolution_area_effect.pdf")    
+dev.off()
+
+plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
+     xlim=c(0,10),
+     xlab="Imagery spatial resolution (m)", 
+     ylab="Patch reef perimeter (m)", 
+     main="Perimeter versus imagery resolution")
+res.perim.lm=lm(perimeter_m ~ imagery_resolution_m, data=data)
+abline(res.perim.lm, col = "black")
+```
+
+<img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-3.png" style="display: block; margin: auto;" />
+
+``` r
+summary(res.perim.lm)
+dev.copy(pdf,"figs/resolution_perimeter_effect.pdf")    
+dev.off()
+
+# Effect of date (i.e., do patch reefs measureably grow or shrink over time?)
+plot(area_m2~as.numeric(year), data=data, col="slategrey",
+     xlab="Year", 
+     ylab="Patch reef area (m^2)", 
+     main="Area versus year")
+date.area.lm=lm(area_m2 ~ as.numeric(year), data=data)
+abline(date.area.lm, col = "black")
+```
+
+<img src="Module1_MeasuringReefs_files/figure-markdown_github/data explore-1-4.png" style="display: block; margin: auto;" />
+
+``` r
+summary(date.area.lm)
+dev.copy(pdf,"figs/date_area_effect.pdf")    
+dev.off()
+```
 
 Now, let's see if there's anything going on with time when imagery resolution is considered:
 
@@ -164,34 +229,19 @@ res.year.lm=lm(area_m2 ~ imagery_resolution_m * as.numeric(year), data=data)
 summary(res.year.lm)
 ```
 
-    ## 
-    ## Call:
-    ## lm(formula = area_m2 ~ imagery_resolution_m * as.numeric(year), 
-    ##     data = data)
-    ## 
-    ## Residuals:
-    ##     Min      1Q  Median      3Q     Max 
-    ## -148.53  -50.92   20.52   45.47  114.43 
-    ## 
-    ## Coefficients:
-    ##                                        Estimate Std. Error t value
-    ## (Intercept)                           29220.705  17736.667   1.647
-    ## imagery_resolution_m                  -4500.815   7563.176  -0.595
-    ## as.numeric(year)                        -14.165      8.806  -1.609
-    ## imagery_resolution_m:as.numeric(year)     2.256      3.750   0.601
-    ##                                       Pr(>|t|)
-    ## (Intercept)                              0.112
-    ## imagery_resolution_m                     0.557
-    ## as.numeric(year)                         0.121
-    ## imagery_resolution_m:as.numeric(year)    0.553
-    ## 
-    ## Residual standard error: 74.95 on 24 degrees of freedom
-    ##   (8 observations deleted due to missingness)
-    ## Multiple R-squared:  0.8005, Adjusted R-squared:  0.7755 
-    ## F-statistic:  32.1 on 3 and 24 DF,  p-value: 1.449e-08
+Part IV: Write-up
+-----------------
 
-Useful information
-------------------
+-   When you’re finished with your analyses, go back and give each figure a short caption
+-   Structure your .Rmd file as a ‘mini-paper’ with a bit of very brief text (~2-5 sentences) for each of the usual paper sections:
+    -   Introduction (summarize what you’re doing with this mini-project)
+    -   Methods (what you did, both in the field and the lab)
+    -   Results (here’s where your figures and stats outputs will go)
+    -   Discussion (mention any interesting findings and, if you have time, briefly relate this to any previous literature using a similar approach/asking similar questions)
+-   This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
+
+Useful reference information
+----------------------------
 
 #### Determining resolution of Google Earth imagery
 
