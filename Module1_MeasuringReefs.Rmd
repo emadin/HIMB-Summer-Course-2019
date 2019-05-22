@@ -57,17 +57,13 @@ Preparation:
     + Area
     + Perimeter
 * Revise plan and write protocol for field measurements
-* Clone repository https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs-, which will allow you to open the .csv datasheet template ("Module1_MeasuringReefs_template.csv") 
-    + Do not add/delete columns since we will combine datasets later
-    + Column headings in red are those you’ll be filling in
-* Print datasheets (relevant columns) on waterproof paper
+* Create datasheets on waterproof paper
 * Gather remaining supplies for morning field trip
 
 Measuring reefs:
 
 * Measure each study reef based on methods in protocol
-* Do three replicate measurements per reef
-* Record data on datasheet(s)
+* Record data (including metadata - e.g., date/time, depth, etc.) on datasheet(s)
 * Make sure not to leave any gear in the water!
 
 Data entry:
@@ -78,8 +74,11 @@ Data entry:
 
 Getting started:
 
-* Download .kmz/.kml patch reef placemark file ("Sites.kmz"") from https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs-
-* Open saved .csv datasheet template adn re-save with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EM.csv")
+* Clone repository https://github.com/emadin/HIMB-Summer-Course-2019-Remote-Sensing-Imagery-Module-1-Measuring-Reefs-, which will allow you to open the .csv datasheet template ("Module1_MeasuringReefs_template.csv") 
+    + Do not add/delete columns since we will combine datasets later
+    + Column headings in red are those you’ll be filling in
+* Open .kmz/.kml patch reef placemark file ("Sites.kmz"") in Google Earth
+* Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EM.csv")
     + Column headings in red are those you’ll be filling in
 
 Measuring reefs:
@@ -87,7 +86,8 @@ Measuring reefs:
 * You will measure three of the patch reefs in Kane’ohe Bay for:
     + Area
     + Perimeter
-* Do three replicate measurements per reef
+* Do one replicate of each reef
+* If time permits, do the two additional replicate measurements per reef listed in datasheet
 * You will use both Google Earth and Planet Explorer to measure reefs using imagery spanning a range of spatial resolutions
 
 1) **Google Earth**
@@ -136,33 +136,31 @@ Measuring reefs:
     + Manually copy measurements into .csv 
     + _Note_: there’s no way to save measurements, so double-check each entry for accuracy before moving on
 
-
 ## Part 3: Data analysis
 
 Once all data is collected: 
 
 * Check your dataset for any typos, missing values, etc.
-* Commit/push to Github
+* Create a new RStudio proejct (.Rpoj) in the same folder as your .csv
+* Creat a new project-specific repository in Github 
+* Link your Github repo with your project directory (folder)
+* Commit/push to a new project-specific repository you create in Github
+* Send your repo's link to the rest of the group via our Slack rotation group channel
 * Pull (download) everyone else’s datasets
 * Merge others’ datasets with your dataset
-* Commit/push revised (merged) dataset to Github
+* Commit/push revised (merged) dataset to your Github repo
 
 Once everyone’s data is merged:
 
-* Create a new R Markdown (.Rmd) file 
+* Create a new R Markdown (.Rmd) file in R Studio
 * Make some basic plots to help you explore any patterns in the data
 * Run some statistical analyses to determine sources of variance, any significant trends, etc. 
-* When you’re finished, go back and give each figure a short caption 
-* Structure your .Rmd file as a ‘mini-paper’ with a bit of very brief text (~2-5 sentences) for each of the usual paper sections: 
-    + Introduction (summarize what you’re doing with this mini-project)
-    + Methods (what you did, both in the field and the lab)
-    + Results (here’s where your figures and stats outputs will go)
-    + Discussion (mention any interesting findings and, if you have time, relate this to any previous literature using a similar approach/asking similar questions)	
-* This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
 
 Now, let's do some basic plots to get you started:
 
-```{r data import, echo=FALSE, results='hide', include=FALSE}
+_Note: you'll need to change the data source file path & file name to match your own, and your results will be different as a result._ 
+
+```{r data import, echo=TRUE, results='hide', include=FALSE}
 ################################################
 # import data, observe structure
 ################################################
@@ -175,7 +173,8 @@ data$year<-substr(data$date,0,4) # add a column for year only
 ```
 
 
-```{r data explore-1, echo=FALSE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+```{r data explore-1, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+
 ################################################
 # explore patterns
 ################################################
@@ -225,7 +224,7 @@ dev.off()
 
 Now, let's see if there's anything going on with time when imagery resolution is considered:
 
-```{r data analysis-1, echo=TRUE, results='show', fig.height=5, fig.width=5, fig.align='center'}
+```{r data analysis-1, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
 ################################################
 # analyze data
 ################################################
@@ -235,6 +234,15 @@ res.year.lm=lm(area_m2 ~ imagery_resolution_m * as.numeric(year), data=data)
 summary(res.year.lm)
 ```
 
+## Part IV: Write-up
+
+* When you’re finished with your analyses, go back and give each figure a short caption 
+* Structure your .Rmd file as a ‘mini-paper’ with a bit of very brief text (~2-5 sentences) for each of the usual paper sections: 
+    + Introduction (summarize what you’re doing with this mini-project)
+    + Methods (what you did, both in the field and the lab)
+    + Results (here’s where your figures and stats outputs will go)
+    + Discussion (mention any interesting findings and, if you have time, briefly relate this to any previous literature using a similar approach/asking similar questions)	
+* This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
 
 ## Useful reference information
 
