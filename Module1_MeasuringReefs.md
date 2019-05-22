@@ -1,7 +1,7 @@
 Project 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-21
+2019-05-22
 
 Summary
 -------
@@ -71,7 +71,15 @@ Getting started:
 
 -   Open .kmz/.kml patch reef placemark file ("Sites.kmz", sent to you by Slack) in Google Earth
 -   Open .csv datasheet you saved with your initials
-    -   Column headings in red are those you’ll be filling in
+    -   Column headings you’ll be filling in are:
+        -   reef\_no
+        -   perimeter\_m
+        -   area\_m2
+        -   diam\_longest\_m (for field measurements only)
+        -   diam\_perpendic\_m (for field measurements only)
+        -   date (for field measurements only)
+        -   observer (as your three or four initials)
+        -   notes (if needed)
 
 Measuring reefs:
 
@@ -90,8 +98,8 @@ Measuring reefs:
         |-----------------|----------------|---------------------------------------|--------------|
         | 20130115        | 0.15           | NA; aerial imagery                    | Unknown      |
         | 20130822        | 0.50           | WorldView-1/2, GeoEye-1, or Quickbird | DigitalGlobe |
-        | 20110108        | 1.00           | Ikonos                                | DigitalGlobe |
-        | 20030412        | 2.00           | EarlyBird-1 (?)                       | DigitalGlobe |
+        | 20110108        | ~1.00          | Ikonos                                | DigitalGlobe |
+        | 20030412        | ~2.00          | EarlyBird-1 (?)                       | DigitalGlobe |
 
     -   Use the polygon measurement tool to extract area/perimeter
     -   Manually copy measurements into .csv
@@ -106,12 +114,12 @@ Measuring reefs:
     -   Visually compare the Google Earth placemarks with the Planet Explorer AOI to locate your study reefs
     -   Measure each of the study reefs for the following satellites/dates/spatial resolutions by using the left-hand options area to select the following imagery:
 
-        | Date (yyyymmdd) | Resolution (m) | Satellite                             | Provider     |
-        |-----------------|----------------|---------------------------------------|--------------|
-        | 20130115        | 0.15           | NA; aerial imagery                    | Unknown      |
-        | 20130822        | 0.50           | WorldView-1/2, GeoEye-1, or Quickbird | DigitalGlobe |
-        | 20110108        | 1.00           | Ikonos                                | DigitalGlobe |
-        | 20030412        | 2.00           | EarlyBird-1 (?)                       | DigitalGlobe |
+        | Date (yyyymmdd) | Resolution (m) | Satellite                            | Provider |
+        |-----------------|----------------|--------------------------------------|----------|
+        | 20190316        | ~3.00          | PlanetScope (formerly Dove CubeSats) | Planet   |
+        | 20160208        | 5.00           | RapidEye                             | Planet   |
+        | 20180307        | ~10.00         | Sentinel-2                           | ESA      |
+        | 20190328        | 30.00          | Landsat 8                            | USGS     |
 
     -   To find this imagery most efficiently, set the following search parameters:
         -   Make sure you’re in “Browse” mode
@@ -230,6 +238,29 @@ Now, let's see if there's anything going on with time when imagery resolution is
 res.year.lm=lm(area_m2 ~ imagery_resolution_m * as.numeric(year), data=data)
 summary(res.year.lm)
 ```
+
+Or reef identity (number):
+
+\`\`\`{r data analysis-1, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+===================================================================================================
+
+################################################# 
+
+analyze data
+------------
+
+################################################# 
+
+Effects of imagery resolution + reef ID
+=======================================
+
+res.reefID.lm=lm(area\_m2 ~ imagery\_resolution\_m \* reef\_no, data=data)
+==========================================================================
+
+summary(res.reefID.lm)
+======================
+
+\`\`\`
 
 Part IV: Write-up
 -----------------
