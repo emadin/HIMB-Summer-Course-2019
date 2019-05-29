@@ -72,7 +72,16 @@ Data entry:
     + Do not add/delete columns since we will combine datasets later
     + Column headings in red are those you’ll be filling in
 * Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EM.csv")
-    + Column headings in red are those you’ll be filling in
+    + Column headings you’ll be filling in are:
+        - reef_no
+        - perimeter_m
+        - area_m2
+        - diam_longest_m (if measured)
+        - diam_perpendic_m (if measured)
+        - date 
+        - observer (as your three or four initials)
+        - notes (if needed)
+
 * Enter data into this datasheet
 
 #### Part 2: Imagery measurements
@@ -85,9 +94,6 @@ Getting started:
         - reef_no
         - perimeter_m
         - area_m2
-        - diam_longest_m (for field measurements only)
-        - diam_perpendic_m (for field measurements only)
-        - date (for field measurements only)
         - observer (as your three or four initials)
         - notes (if needed)
 
