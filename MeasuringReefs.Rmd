@@ -115,8 +115,8 @@ Measuring reefs:
         ----------------- | --------------- | ------------------------------------- | ------------ |
         20130115          | 0.15            | NA; aerial imagery                    | Unknown      |
         20130822          | 0.50            | WorldView-1/2, GeoEye-1, or Quickbird | DigitalGlobe |
-        20110108          | ~1.00            | Ikonos                                | DigitalGlobe |
-        20030412          | ~2.00            | EarlyBird-1 (?)                       | DigitalGlobe |
+        20110108          | ~1.00           | Ikonos                                | DigitalGlobe |
+        20030412          | ~2.00           | EarlyBird-1 (?)                       | DigitalGlobe |
 
 
     + Use the polygon measurement tool to extract area/perimeter 
@@ -144,7 +144,7 @@ Measuring reefs:
         - Date range (right under search box) = 2016/01/01 - today
         - Drop down menu = Daily imagery
         - Cloud cover = 0-10%
-        - Area coverage = 0-90%
+        - Area coverage = 90-100%
         - Source = tick sources corresponding to “satellite” above 
         - _Tip_: do this satellite by satellite for faster searching
     + Use the “measure area” tool to extract area 

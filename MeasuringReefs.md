@@ -131,7 +131,7 @@ Measuring reefs:
         -   Date range (right under search box) = 2016/01/01 - today
         -   Drop down menu = Daily imagery
         -   Cloud cover = 0-10%
-        -   Area coverage = 0-90%
+        -   Area coverage = 90-100%
         -   Source = tick sources corresponding to “satellite” above
         -   *Tip*: do this satellite by satellite for faster searching
     -   Use the “measure area” tool to extract area
