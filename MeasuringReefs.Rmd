@@ -4,8 +4,6 @@ author: "Elizabeth Madin"
 date: "`r format(Sys.Date())`"
 output: 
   github_document
-  #word_document
-
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +15,7 @@ library(plotrix)
 library(plyr)
 ```
 
-## Summary: Elizabbeth
+## Summary: Elizabbeth hjkhjk
 
 This module focuses on measuring and comparing coral patch reefs in the field and with satellite and aerial imagery of various spatial resolutions. 
 
