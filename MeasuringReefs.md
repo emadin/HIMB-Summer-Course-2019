@@ -3,8 +3,8 @@ Project 1 - Measuring reefs
 Elizabeth Madin
 2019-05-29
 
-Summary
--------
+Summary: Elizabbeth
+-------------------
 
 This module focuses on measuring and comparing coral patch reefs in the field and with satellite and aerial imagery of various spatial resolutions.
 
