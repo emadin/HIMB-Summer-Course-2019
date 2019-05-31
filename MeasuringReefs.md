@@ -1,7 +1,7 @@
 Project 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-29
+2019-05-31
 
 Summary:
 --------
@@ -29,6 +29,14 @@ Components
     -   Planet Explorer
 -   Compare patterns and measurement variability based on method, imagery spatial resolution, etc.
 -   Write up results as 'mini-paper'
+
+Materials
+---------
+
+-   transect tapes: 1 x 100m or 2x 30m per group
+-   slates: 2
+-   printed metadata sheet
+-   mesh bag(s) to carry everything
 
 Protocols
 ---------
@@ -265,4 +273,4 @@ Part IV: Write-up
     -   Methods (what you did, both in the field and the lab)
     -   Results (here’s where your figures and stats outputs will go)
     -   Discussion (mention any interesting findings and, if you have time, briefly relate this to any previous literature using a similar approach/asking similar questions)
--   This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it)
+-   This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it).
