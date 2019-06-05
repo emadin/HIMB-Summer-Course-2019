@@ -52,8 +52,7 @@ Each group of participants will focus on a unique set of patch reefs:
 Preparation:
 
 -   Brainstorm, plan, and practice measurements on land:
-    -   Area
-    -   Perimeter
+    -   Perimeter only
 -   Revise plan and write protocol for field measurements
 -   Create datasheets on waterproof paper
 -   Gather remaining supplies for morning field trip
@@ -75,9 +74,7 @@ Data entry:
     -   The column headings you’ll be filling in are:
         -   reef\_no
         -   perimeter\_m
-        -   area\_m2
-        -   diam\_longest\_m (if measured)
-        -   diam\_perpendic\_m (if measured)
+        -   area\_m2 (use the formula =((C2/(2*PI()))^2)*PI() to calculate this from perimeter)
         -   date
         -   observer (as your three or four initials)
         -   notes (if needed)
@@ -98,8 +95,9 @@ Getting started:
 Measuring reefs:
 
 -   You will measure three of the patch reefs in Kane’ohe Bay for:
-    -   Area
     -   Perimeter
+    -   Area
+        -   only in Google Earth; for Planet, use the formula =((C2/(2*PI()))^2)*PI() to calculate area from perimeter)
 -   Do three replicates of each reef
 -   You will use both Google Earth and Planet Explorer to measure reefs using imagery spanning a range of spatial resolutions
 
