@@ -1,7 +1,7 @@
 Project 1 - Measuring reefs
 ================
 Elizabeth Madin
-2019-05-31
+2019-06-05
 
 Summary:
 --------
@@ -66,11 +66,13 @@ Measuring reefs:
 
 Data entry:
 
--   Open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv") sent to you by Slack
+-   Open the .csv datasheet template ("Module1\_MeasuringReefs\_template.csv")
     -   Do not add/delete columns since we will combine datasets later
-    -   Column headings in red are those you’ll be filling in
--   Open .csv datasheet template and re-save with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EM.csv")
-    -   Column headings you’ll be filling in are:
+    -   Re-save file with your initials appended to the end of the filename (e.g., "Module1\_MeasuringReefs\_EPM.csv")
+-   Choose one person from each group to enter the group's field data
+    -   All others should delete all rows where column "method" = "field"
+    -   For the group's data enterer, enter field data into this datasheet
+    -   The column headings you’ll be filling in are:
         -   reef\_no
         -   perimeter\_m
         -   area\_m2
@@ -79,13 +81,12 @@ Data entry:
         -   date
         -   observer (as your three or four initials)
         -   notes (if needed)
--   Enter data into this datasheet
 
 #### Part 2: Imagery measurements
 
 Getting started:
 
--   Open .kmz/.kml patch reef placemark file ("Sites.kmz", sent to you by Slack) in Google Earth
+-   Open .kmz/.kml patch reef placemark file ("Sites.kmz") yb dragging into Google Earth
 -   Open .csv datasheet you saved with your initials
     -   Column headings you’ll be filling in are:
         -   reef\_no
@@ -99,12 +100,13 @@ Measuring reefs:
 -   You will measure three of the patch reefs in Kane’ohe Bay for:
     -   Area
     -   Perimeter
--   Do one replicate of each reef
--   If time permits, do the two additional replicate measurements per reef listed in datasheet
+-   Do three replicates of each reef
 -   You will use both Google Earth and Planet Explorer to measure reefs using imagery spanning a range of spatial resolutions
 
 1.  **Google Earth**
 
+    -   Create a folder in My Places (Add -&gt; Folder); give it a name that makes sense (eg, "KBay patch reefs")
+        -   Keep this folder highlighted from now on while you're measureing reefs so the measurements will go straight into that folder
     -   Measure each of the study reefs for the following dates/spatial resolutions by using the Time Slider to select the following dates’ imagery:
 
         | Date (yyyymmdd) | Resolution (m) | Satellite                             | Provider     |
@@ -117,8 +119,8 @@ Measuring reefs:
     -   Use the polygon measurement tool to extract area/perimeter
     -   Manually copy measurements into .csv
     -   Save measurement: name as “PR\#\# \_ \#.\#\# \_ \#\# \_ \#\#” = PR\[reef \#\] \_ \[resolution, in m\] \_ \[replicate\] \_ \[your initials\] (e.g., “PR21\_0.15\_01\_EM”)
-    -   Drag saved measurements to My Places
-    -   Frequently save My Places (File -&gt; Save -&gt; Save My Places)
+    -   If any of your measurments show up in Temporary Places, drag saved measurements to the folder you created in My Places
+    -   Frequently save My Places! (File -&gt; Save -&gt; Save My Places)
     -   *Note*: if you need to go back to measurements, right-click on outlines (or their corresponding saved names in My Places) -&gt; Get Info
 
 2.  **Planet Explorer**
@@ -153,22 +155,21 @@ Part 3: Data analysis
 Once all data is collected:
 
 -   Check your dataset for any typos, missing values, etc.
--   Create a new RStudio proejct (.Rpoj) in the same folder as your .csv
 -   Creat a new project-specific repository in Github
 -   Link your Github repo with your project directory (folder)
--   Commit/push to a new project-specific repository you create in Github
+-   Commit/push to the new project-specific repository you created in Github
+
+If time permits:
+
 -   Send your repo's link to the rest of the group via our Slack rotation group channel
 -   Pull (download) everyone else’s datasets
 -   Merge others’ datasets with your dataset
 -   Commit/push revised (merged) dataset to your Github repo
-
-Once everyone’s data is merged:
-
--   Create a new R Markdown (.Rmd) file in R Studio
+-   Once everyone’s data is merged, create a new R Markdown (.Rmd) file in R Studio
 -   Make some basic plots to help you explore any patterns in the data
 -   Run some statistical analyses to determine sources of variance, any significant trends, etc.
 
-Now, let's do some basic plots to get you started:
+Do some plots tolook at patterns in the data (here are a few basic ones to get you started):
 
 *Note: you'll need to change the data source file path & file name to match your own, and your results will be different as a result.*
 
@@ -263,6 +264,15 @@ Or reef identity (number):
 res.reefID.lm=lm(area_m2 ~ imagery_resolution_m * reef_no, data=data)
 summary(res.reefID.lm)
 ```
+
+If time **doesn't** permit merging and analysis of group data:
+
+-   Discuss as a group any patterns that seemed to emerge...e.g.,
+    -   Which method you found to be more variable among groups/individuals - field or imagery?
+    -   How did imagery resolution affect your measureemnts?
+    -   What are the trade-offs between field vs imagery measurements?
+    -   What are the trade-offs between the different imagery a) platforms and b) resolutions?
+    -   Skip "Part IV: Write-up"
 
 Part IV: Write-up
 -----------------
