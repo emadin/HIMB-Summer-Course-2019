@@ -93,7 +93,11 @@ Data entry:
 
 Getting started:
 
+<<<<<<< HEAD
 * Open .kmz/.kml patch reef placemark file ("Sites.kmz") by dragging into Google Earth
+=======
+* Open .kmz/.kml patch reef placemark file ("Sites.kmz") yb dragging into Google Earth
+>>>>>>> 2d9db4bef68419400e350d6675952c0e2ae6d4c2
 * Open .csv datasheet you saved with your initials
     + Column headings you’ll be filling in are:
         - reef_no
