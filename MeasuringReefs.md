@@ -86,7 +86,7 @@ Data entry:
 
 Getting started:
 
--   Open .kmz/.kml patch reef placemark file ("Sites.kmz") yb dragging into Google Earth
+-   Open .kmz/.kml patch reef placemark file ("Sites.kmz") by dragging into Google Earth
 -   Open .csv datasheet you saved with your initials
     -   Column headings you’ll be filling in are:
         -   reef\_no
@@ -159,7 +159,7 @@ Once all data is collected:
 -   Link your Github repo with your project directory (folder)
 -   Commit/push to the new project-specific repository you created in Github
 
-If time permits:
+If time permits for merging and analysis of group data:
 
 -   Send your repo's link to the rest of the group via our Slack rotation group channel
 -   Pull (download) everyone else’s datasets
