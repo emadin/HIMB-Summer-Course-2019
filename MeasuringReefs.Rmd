@@ -17,21 +17,21 @@ library(plyr)
 
 ## Summary: 
 
-This module focuses on measuring and comparing coral patch reefs in the field and with satellite and aerial imagery of various spatial resolutions. 
+This sub-module focuses on measuring and comparing coral patch reefs in the field and with satellite, aerial (airplane and drone) imagery of various spatial resolutions, as well as GPD tracking. 
 
-We're using this exercize as a means to understand the general implications of satellite imagery spatial resolution on measuring features of interest. However, it has real-world applications in terms of coral reef area measurement (e.g., Madin and Madin (2015) _Conservation Biology_ and https://allencoralatlas.org)). 
+We're using this exercize as a means to understand the general implications of satellite imagery spatial resolution on measuring features of interest. However, it has real-world applications in terms of coral reef area measurement (e.g., [Madin and Madin (2015) Conservation Biology](https://drive.google.com/file/d/1C_vg4Uju5aTMWh7-Pf0ZhgrRtXSfSMNK/view) and https://allencoralatlas.org)). 
 
 ## Goals
 
 * Make connection between use of field data and remote (e.g., satellite; aerial) imagery to measure biological/habitat variables
 * Highlight strengths and limitations of each approach
-* Start thinking about ?s to ask/answer in a) course project and b) own research
+* Start thinking about ?s to ask/answer in your own research
 * Provide coral reef field experience
-* Generate dataset for potentially publishable study (?)
+* Contribute drone imagery to long-term reef monitoring dataset
 
 ## Components
 
-* Devise/practice field measurement protocol
+* Devise/practice field measurement protocol (transect- and drone-based)
 * Measure reefs in-situ
 * Measure reefs w/satellite imagery of various spatial resolutions via:
     + Google Earth
@@ -41,18 +41,16 @@ We're using this exercize as a means to understand the general implications of s
 
 ## Materials
 
-* transect tapes: 1 x 100m or 2x 30m per group
+* transect tapes, weighted: 2 x 50m per group
 * slates: 2
-* printed metadata sheet
+* metadata sheet (on underwater paper)
 * mesh bag(s) to carry everything
+* drone
+* drone batteries + charger
 
 ## Protocols
 
-Each group of participants will focus on a unique set of patch reefs: 
-
-* Group 1: Patch reefs (PR): 19 (small), 16 (med), 12 (large)
-* Group 2: Patch reefs (PR): 20 (small), 22 (med), 15 (large)
-* Group 3: Patch reefs (PR): 21 (small), 23 (med), 24 (large)
+We will focus on two patch reefs: 20 (small) and 22 (medium)
 
 #### Part 1: Field measurements
 
@@ -60,7 +58,7 @@ Preparation:
 
 * Brainstorm, plan, and practice measurements on land:
     + Perimeter only
-* Revise plan and write protocol for field measurements
+* Establish protocol for field measurements
 * Create datasheets on waterproof paper
 * Gather remaining supplies for morning field trip
 
@@ -72,46 +70,43 @@ Measuring reefs:
 
 Data entry:
 
-* Open the .csv datasheet template ("Module1_MeasuringReefs_template.csv") 
+* Open the .csv datasheet template (data/MeasuringReefs_template.csv) 
     + Do not add/delete columns since we will combine datasets later
-    + Re-save file with your initials appended to the end of the filename (e.g., "Module1_MeasuringReefs_EPM.csv")
+    + Re-save file with your initials appended to the end of the filename (e.g., "MeasuringReefs_EPM.csv")
 * Choose one person from each group to enter the group's field data
-    + All others should delete all rows where column "method" = "field"
+    + All others should delete the two rows (2 & 27) where column "method" = "field"
     + For the group's data enterer, enter field data into this datasheet
     + The column headings you’ll be filling in are:
-        - reef_no
         - perimeter_m
         - area_m2 (use the formula =((C2/(2*PI()))^2)*PI() to calculate this from perimeter)
         - date 
-        - observer (as your three or four initials)
+        - observer (as your two or three initials)
         - notes (if needed)
 
 #### Part 2: Imagery measurements
 
 Getting started:
 
-* Open .kmz/.kml patch reef placemark file ("Sites.kmz") by dragging into Google Earth
+* Open .kmz/.kml patch reef placemark file ("FieldSites.kmz") by dragging into Google Earth
 * Open .csv datasheet you saved with your initials
     + Column headings you’ll be filling in are:
-        - reef_no
         - perimeter_m
         - area_m2
-        - observer (as your three or four initials)
+        - observer (as your two or three initials)
         - notes (if needed)
 
 Measuring reefs:
 
-* You will measure three of the patch reefs in Kane’ohe Bay for:
+* You will measure two of the patch reefs in Kane’ohe Bay for:
     + Perimeter
-    + Area 
-        - only in Google Earth; for Planet, use the formula =((C2/(2*PI()))^2)*PI() to calculate area from perimeter)
-* Do three replicates of each reef
+        - use the formula =((C2/(2*PI()))^2)*PI() to calculate area from perimeter) in .csv (you'll need to change cell C2 to whatever row it's in)
+* Do one replicate of each reef (replication will come from pooling the group measurements)
 * You will use both Google Earth and Planet Explorer to measure reefs using imagery spanning a range of spatial resolutions
 
 1) **Google Earth**
 
     + Create a folder in My Places (Add -> Folder); give it a name that makes sense (eg, "KBay patch reefs")
-        - Keep this folder highlighted from now on while you're measureing reefs so the measurements will go straight into that folder
+        - Keep this folder highlighted from now on while you're measuring reefs so the measurements will go straight into that folder
     + Measure each of the study reefs for the following dates/spatial resolutions by using the Time Slider to select the following dates’ imagery:
 
 
@@ -123,9 +118,9 @@ Measuring reefs:
         20030412          | ~2.00           | EarlyBird-1 (?)                       | DigitalGlobe |
 
 
-    + Use the polygon measurement tool to extract area/perimeter 
+    + Use the polygon measurement tool to extract perimeter 
     + Manually copy measurements into .csv 
-    + Save measurement: name as “PR## _ #.## _ ## _ ##” = PR[reef #] _ [resolution, in m] _ [replicate] _ [your initials] (e.g., “PR21_0.15_01_EM”)
+    + Save measurement: name as “PR## _ #.## _ ##” = PR[reef #] _ [resolution, in m] _ [your initials] (e.g., “PR20_0.15_EM”)
     + If any of your measurments show up in Temporary Places, drag saved measurements to the folder you created in My Places
     + Frequently save My Places! (File -> Save -> Save My Places)
     + _Note_: if you need to go back to measurements, right-click on outlines (or their corresponding saved names in My Places) -> Get Info 
@@ -151,8 +146,7 @@ Measuring reefs:
         - Area coverage = 90-100%
         - Source = tick sources corresponding to “satellite” above 
         - _Tip_: do this satellite by satellite for faster searching
-    + Use the “measure area” tool to extract area 
-    + Use the “measure distance” tool to extract perimeter (hold shift for free hand measurement of both area/perim)
+    + Use the “measure distance” tool to extract perimeter (hold shift for free hand measurement)
     + Manually copy measurements into .csv 
     + _Note_: there’s no way to save measurements, so double-check each entry for accuracy before moving on
 
@@ -161,30 +155,32 @@ Measuring reefs:
 Once all data is collected: 
 
 * Check your dataset for any typos, missing values, etc.
-* Creat a new project-specific repository in Github 
+* Create a folder called "data" within whatever folder you're using for this and put your dataset in it 
+* Create a folder called "output" within whatever folder you're using for this (leave empty)
+* Create a new project-specific repository in Github 
 * Link your Github repo with your project directory (folder)
 * Commit/push to the new project-specific repository you created in Github
 
 If time permits for merging and analysis of group data:
 
-* Send your repo's link to the rest of the group via our Slack rotation group channel
+* Send your repo's link to the rest of the group via our "remote-sensing-module" Slack channel
 * Pull (download) everyone else’s datasets
-* Merge others’ datasets with your dataset
+* Merge others’ datasets with your dataset & save
 * Commit/push revised (merged) dataset to your Github repo
 * Once everyone’s data is merged, create a new R Markdown (.Rmd) file in R Studio
 * Make some basic plots to help you explore any patterns in the data
 * Run some statistical analyses to determine sources of variance, any significant trends, etc. 
 
-Do some plots tolook at patterns in the data (here are a few basic ones to get you started):
+Do some plots to look at patterns in the data (here are a few basic ones to get you started - you can copy this code or write your own):
 
-_Note: you'll need to change the data source file path & file name to match your own, and your results will be different as a result._ 
+_Note: you'll need to change the data source file name to match your own, and your results will be different than mine as a result._ 
 
 ```{r data import, echo=TRUE, results='hide', include=FALSE}
 ################################################
 # import data, observe structure
 ################################################
 
-data<-read.csv("data/Module1_MeasuringReefs_EM.csv", header = TRUE)
+data<-read.csv("data/MeasuringReefs_EM.csv", header = TRUE)
 
 names(data)
 head(data)
@@ -199,14 +195,15 @@ data$year<-substr(data$date,0,4) # add a column for year only
 ################################################
 
 # Effect of method
-plot(area_m2~method, data=data, na.ignore=TRUE, col="lightgrey",
+boxplot(area_m2~method, data=data, na.ignore=TRUE, col="lightgrey",
      ylab="Patch reef area (m^2)", 
      xlab="Method", 
      main="Area versus method")
-dev.copy(pdf,"figs/method_area_effect.pdf")    # can change to .png, etc.; can change size to incr resolution
+dev.copy(pdf,"output/method_area_effect.pdf")    # can change to .png, etc.; can change size to incr resolution
 dev.off()
 
 # Effect of imagery resolution
+## on area
 plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
      xlim=c(0,10),
      xlab="Imagery spatial resolution (m)", 
@@ -215,9 +212,10 @@ plot(area_m2~imagery_resolution_m, data=data, col="slategrey",
 res.area.lm=lm(area_m2 ~ imagery_resolution_m, data=data)
 abline(res.area.lm, col = "black")
 summary(res.area.lm)
-dev.copy(pdf,"figs/resolution_area_effect.pdf")    
+dev.copy(pdf,"output/resolution_area_effect.pdf")    
 dev.off()
 
+## on perimeter
 plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
      xlim=c(0,10),
      xlab="Imagery spatial resolution (m)", 
@@ -226,10 +224,10 @@ plot(perimeter_m~imagery_resolution_m, data=data, col="slategrey",
 res.perim.lm=lm(perimeter_m ~ imagery_resolution_m, data=data)
 abline(res.perim.lm, col = "black")
 summary(res.perim.lm)
-dev.copy(pdf,"figs/resolution_perimeter_effect.pdf")    
+dev.copy(pdf,"output/resolution_perimeter_effect.pdf")    
 dev.off()
 
-# Effect of date (i.e., do patch reefs measureably grow or shrink over time?)
+# Effect of date (i.e., do patch reefs measurably grow or shrink over time?)
 plot(area_m2~as.numeric(year), data=data, col="slategrey",
      xlab="Year", 
      ylab="Patch reef area (m^2)", 
@@ -237,44 +235,58 @@ plot(area_m2~as.numeric(year), data=data, col="slategrey",
 date.area.lm=lm(area_m2 ~ as.numeric(year), data=data)
 abline(date.area.lm, col = "black")
 summary(date.area.lm)
-dev.copy(pdf,"figs/date_area_effect.pdf")    
+dev.copy(pdf,"output/date_area_effect.pdf")    
 dev.off()
 ```
 
 Now, let's see if there's anything going on with time when imagery resolution is considered:
 
-```{r data analysis-1, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+```{r data analysis-1, echo=TRUE, results='hide'}
+
 ################################################
 # analyze data
 ################################################
 
 # Effects of imagery resolution + year
-res.year.lm=lm(area_m2 ~ imagery_resolution_m * as.numeric(year), data=data)
-summary(res.year.lm)
+
+## Note: interpretation below is for my test data; your data's results may be different
+data$year <- as.numeric(data$year) 
+res.year.lm=lm(area_m2 ~ imagery_resolution_m * year, data=data) # run interaction model
+summary(res.year.lm)      # overall model is significant, but not indiv parameters
+anova(res.year.lm)        # run ANOVA to look at predictor variables in isolation
+drop1(res.year.lm, test="F")  # use drop1 function to see which parameter can be dropped
+res.year.lm2 <- lm(area_m2 ~ imagery_resolution_m + year, data=data)
+                          # re-run model w/o interaction term that drop1 said to drop
+summary(res.year.lm2)     # model now says both predictor variables are significant
+drop1(res.year.lm2, test="F") # drop1 says neither remaining variable can be dropped
+
 ```
 
-Or reef identity (number):
+Or reef identity (reef number):
 
-```{r data analysis-2, echo=TRUE, results='hide', fig.height=5, fig.width=5, fig.align='center'}
+```{r data analysis-2, echo=TRUE, results='hide'}
+
 ################################################
 # analyze data
 ################################################
 
 # Effects of imagery resolution + reef ID
 res.reefID.lm=lm(area_m2 ~ imagery_resolution_m * reef_no, data=data)
-summary(res.reefID.lm)
+summary(res.reefID.lm)  
+              # I get NAs for variable reef_no since only one reef used in my dataset
 ```
 
-If time **doesn't** permit merging and analysis of group data:
+## Part IV: Discussion questions
 
 * Discuss as a group any patterns that seemed to emerge...e.g.,
     + Which method you found to be more variable among groups/individuals - field or imagery?
-    + How did imagery resolution affect your measureemnts?
+    + How did imagery resolution affect your measurements?
     + What are the trade-offs between field vs imagery measurements?
     + What are the trade-offs between the different imagery a) platforms and b) resolutions?
-    + Skip "Part IV: Write-up"
 
-## Part IV: Write-up
+* If time permits, move on to next section
+
+## Part V: Write-up
 
 * When you’re finished with your analyses, go back and give each figure a short caption 
 * Structure your .Rmd file as a ‘mini-paper’ with a bit of very brief text (~2-5 sentences) for each of the usual paper sections: 
@@ -282,6 +294,6 @@ If time **doesn't** permit merging and analysis of group data:
     + Methods (what you did, both in the field and the lab)
     + Results (here’s where your figures and stats outputs will go)
     + Discussion (mention any interesting findings and, if you have time, briefly relate this to any previous literature using a similar approach/asking similar questions)	
-* This exercise will help you see the value of using R Markdown to write papers (if you’re not already familiar with or using it).
+* This exercise will help you see the value of using R Markdown to write papers! 
 
 
