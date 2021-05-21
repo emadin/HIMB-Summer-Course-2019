@@ -129,7 +129,7 @@ Measuring reefs:
         dates’ imagery:
         
         | Date (yyyymmdd) | Resolution (m) | Satellite                             | Provider     |
-        | --------------- | -------------- | ------------------------------------- | ------------ |
+        | :-------------- | :------------- | :------------------------------------ | :----------- |
         | 20130115        | 0.15           | NA; aerial imagery                    | Unknown      |
         | 20130822        | 0.50           | WorldView-1/2, GeoEye-1, or Quickbird | DigitalGlobe |
         | 20110108        | \~1.00         | Ikonos                                | DigitalGlobe |
@@ -165,7 +165,7 @@ Measuring reefs:
         options area to select the following imagery:
         
         | Date (yyyymmdd) | Resolution (m) | Satellite                            | Provider |
-        | --------------- | -------------- | ------------------------------------ | -------- |
+        | :-------------- | :------------- | :----------------------------------- | :------- |
         | 20190316        | \~3.00         | PlanetScope (formerly Dove CubeSats) | Planet   |
         | 20160208        | 5.00           | RapidEye                             | Planet   |
         | 20180307        | \~10.00        | Sentinel-2                           | ESA      |
